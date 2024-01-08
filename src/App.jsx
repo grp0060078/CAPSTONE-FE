@@ -13,19 +13,19 @@ function App() {
   const [queries, setQueries] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/queries/list')
+    axios.get('https://capstone-be-mnv7.onrender.com/queries/list')
       .then(res => setQueries(res.data))
       .catch(error => console.error(error));
   }, []);
 
   const handleQuerySubmit = (data) => {
-    axios.post('http://localhost:3001/queries/create', data)
+    axios.post('https://capstone-be-mnv7.onrender.com/queries/create', data)
       .then(res => setQueries([...queries, res.data]))
       .catch(error => console.error(error));
   };
 
   const handleQuerySolve = (id, solution) => {
-    axios.put(`http://localhost:3001/queries/solve/${id}`, { solution })
+    axios.put(`https://capstone-be-mnv7.onrender.com/solve/${id}`, { solution })
       .then(res => {
         const updatedQueries = queries.map(query => (query._id === id ? res.data : query));
         setQueries(updatedQueries);

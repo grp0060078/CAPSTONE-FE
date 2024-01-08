@@ -15,7 +15,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/users/signup', { username, password });
+      const response = await axios.post('https://capstone-be-mnv7.onrender.com/users/signup', { username, password });
 
        // Check if response is defined and has a data property
       if (response && response.data) {
